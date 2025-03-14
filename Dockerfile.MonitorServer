@@ -1,0 +1,16 @@
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the application code
+COPY server.py .
+COPY file_monitor_pb2.py .
+COPY file_monitor_pb2_grpc.py .
+
+# Install gRPC dependencies
+RUN pip install grpcio grpcio-tools kafka-python pymongo protobuf
+
+# Run the client
+CMD ["python", "server.py"]
