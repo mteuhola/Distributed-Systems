@@ -16,4 +16,4 @@ RUN pip install grpcio grpcio-tools protobuf
 EXPOSE 50052
 
 # Run the storage manager service
-CMD ["python", "storage_manager.py"]
+CMD ["python", "RecoveryServer.py"]
