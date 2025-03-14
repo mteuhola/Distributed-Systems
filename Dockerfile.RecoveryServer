@@ -1,0 +1,19 @@
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the application code
+COPY storage_manager.py .
+COPY recovery_pb2.py .
+COPY recovery_pb2_grpc.py .
+
+# Install gRPC dependencies
+RUN pip install grpcio grpcio-tools protobuf
+
+# Expose the gRPC server port
+EXPOSE 50052
+
+# Run the storage manager service
+CMD ["python", "storage_manager.py"]
