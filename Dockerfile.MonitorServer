@@ -13,4 +13,4 @@ COPY file_monitor_pb2_grpc.py .
 RUN pip install grpcio grpcio-tools kafka-python pymongo protobuf
 
 # Run the client
-CMD ["python", "server.py"]
+CMD ["python", "MonitorServer.py"]
