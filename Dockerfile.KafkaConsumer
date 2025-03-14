@@ -9,4 +9,4 @@ COPY recovery_client.py .
 
 RUN pip install --no-cache-dir grpcio grpcio-tools kafka-python
 
-CMD ["python", "recovery_client.py"]
+CMD ["python", "KafkaConsumer.py"]
