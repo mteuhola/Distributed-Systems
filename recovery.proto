@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service RecoveryService {
+    rpc RecoverFile (RecoveryRequest) returns (RecoveryResponse);
+    rpc ConfirmRecovery (RecoveryRequest) returns (RecoveryResponse);
+    rpc AddToRecoveryQueue (RecoveryRequest) returns (RecoveryResponse);
+    rpc GetFilesToRecover (Empty) returns (stream FileName);
+}
+
+message RecoveryRequest {
+    string file_name = 1;
+}
+
+message RecoveryResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message Empty {}
+
+message FileName {
+    string file_name = 1;
+}
